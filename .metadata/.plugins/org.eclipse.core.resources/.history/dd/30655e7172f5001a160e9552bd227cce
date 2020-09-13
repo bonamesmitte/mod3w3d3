@@ -1,0 +1,30 @@
+package com.alice.HiberAssignment;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class EmployeeDemo {
+	public static void main(String[] args) {
+		
+		Employee emp1 = new Employee(null, null, null);
+		
+		emp1.setFirstName("Alice");
+		emp1.setLastName("Yoo");
+		emp1.setCompany("Google");
+		
+		Configuration con = new Configuration().configure().addAnnotatedClass(Employee.class);
+		
+		// Creating my session
+		
+		SessionFactory sf = con.buildSessionFactory();
+		
+		Session session = sf.openSession();
+		
+		Transaction ts = session.beginTransaction();
+		
+		session.save(student1);
+		
+		ts.commit();
+	}
+
+}
